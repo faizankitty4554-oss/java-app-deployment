@@ -1,0 +1,5 @@
+[nodes]
+
+node1 ansible_host=172.31.76.97 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/Node-1.pem
+
+node2 ansible_host=172.31.21.234 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/Node-2.pem

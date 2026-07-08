@@ -1,0 +1,31 @@
+---
+- hosts: nodes
+  become: yes
+
+  tasks:
+
+    - name: Stop Tomcat
+      shell: |
+        /opt/tomcat/bin/shutdown.sh || true
+      ignore_errors: yes
+
+
+    - name: Remove old WAR
+      file:
+        path: /opt/tomcat/webapps/app.war
+        state: absent
+
+
+    - name: Copy WAR file
+      copy:
+        src: target/app.war
+        dest: /opt/tomcat/webapps/app.war
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+
+    - name: Start Tomcat
+      shell: |
+        sleep 5
+        /opt/tomcat/bin/startup.sh
