@@ -1,1 +1,1 @@
- Welcome to Java Application
+ Welcome to Java Application - CI/CD Test
